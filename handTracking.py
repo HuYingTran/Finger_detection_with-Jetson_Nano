@@ -12,7 +12,7 @@ hands = mp_hand.Hands(
 )
 
 #Mo may anh
-cap = cv2.VideoCapture("Jetson_nano/test.mp4")
+cap = cv2.VideoCapture("test.mp4")
 
 while cap.isOpened():
     success, img = cap.read()
@@ -30,7 +30,7 @@ while cap.isOpened():
         for idx, hand in enumerate(result.multi_hand_landmarks):
             #ve toa do khung xuong
             mp_drawing_util.draw_landmarks(img, hand, mp_hand.HAND_CONNECTIONS)
-            for id, lm in enumerate(hand.landmarks):
+            for id, lm in enumerate(hand.landmark):
                 #lay cac toa do
                 h,w, _ = img.shape
                 myHand.append([int(lm.x*w),int(lm.y*h)])
